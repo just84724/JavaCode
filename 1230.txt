@@ -1,0 +1,84 @@
+Scanner sc=new Scanner(System.in); 
+		int [][] m=new int [5][4];
+		int n,max=0,min=0,avg=0;
+		n=0;
+		while(n!=5)
+		{
+			System.out.println("1.產生成績");
+			System.out.println("2.排序大到小");
+			System.out.println("3.印平均.最大.最小值");
+			System.out.println("4.列印");
+			System.out.println("5.離開");
+			System.out.println("請選擇1~5");
+			n=sc.nextInt();
+			if(n==1)
+			{
+				for(int i=0;i<5;i++)
+				{
+					for(int j=0;j<3;j++)
+					{
+						m[i][j]=(int)(Math.random()*21+80);
+						m[i][3]=m[i][3]+m[i][j];
+					}
+					m[i][3]=m[i][3]/3;
+				}
+			}
+			else if(n==2)
+			{
+				for(int i=0;i<=3;i++)
+				{
+					for(int j=i+1;j<=4;j++)
+					{
+						if(m[i][3]<m[j][3])
+						{
+							int []t;
+							t=m[i];
+							m[i]=m[j];
+							m[j]=t;
+						}
+					}
+				}
+			}
+			else if(n==3)
+			{
+				max=m[0][3];
+				min=m[0][3];
+				avg=m[0][3];
+				for(int i=1;i<5;i++)
+				{
+					if(max<m[i][3])
+					{
+						max=m[i][3];
+					}
+					if(min>m[i][3])
+					{
+						min=m[i][3];
+					}
+					avg=avg+m[i][3];					         
+				}
+				avg=avg/5;
+			}
+			else if(n==4)
+			{
+				for(int i=0;i<5;i++)
+				{
+					for(int j=0;j<4;j++)
+					{
+						System.out.print(m[i][j]+"\t");
+					}
+					System.out.println();
+				}
+				System.out.println("最大值="+max);
+				System.out.println("最小值="+min);
+				System.out.println("總平均="+avg);
+			}
+			else if(n==5)
+			{
+				break;
+			}
+			else
+			{
+				System.out.println("輸入錯誤");
+			}
+	}
+	}}

@@ -1,0 +1,14 @@
+Scanner sc=new Scanner(System.in);
+		System.out.println("叫块5俱计");
+		int x = sc.nextInt();
+		System.out.println("块="+x);
+		int a = x%10;
+		int b = x%100/10;
+		int c = x%1000/100;
+		int d = x%10000/1000;
+		int e=x/10000;
+		System.out.println("计="+a);
+		System.out.println("计="+b);
+		System.out.println("κ计="+c);
+		System.out.println("计="+d);
+		System.out.println("窾计="+e);

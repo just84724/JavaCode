@@ -1,0 +1,100 @@
+p1
+	int n;
+		n=(int)(Math.random()*12);
+		switch(n)
+		{
+			case 0:
+				n=1;
+			break;
+			case 1:
+				n=2;
+				break;
+			case 2:
+				n=3;
+				break;
+			case 3:
+			case 4:
+			case 5:
+				n=4;
+				break;
+			case 6:
+			case 7:
+			case 8:
+				n=5;
+				break;
+				default:
+				n=6;
+		}
+		System.out.println("n="+n);
+	}
+
+}
+p2
+	int x;
+		Scanner sc=new Scanner(System.in);
+		System.out.println("½Ð¿é¤J¦¨ÁZ");
+		x=sc.nextInt();
+		x=(int)(x/10);
+		switch(x)
+		{
+			case 0:
+			case 1:
+			case 2:
+			case 3:
+			case 4:
+			case 5:
+				System.out.println("D¯Å");
+				break;
+			case 6:		
+				System.out.println("C¯Å");
+				break;
+			case 7:
+				System.out.println("B¯Å");
+				break;
+			default:
+				System.out.println("A¯Å");	
+		}
+	}
+
+}
+p3
+for(int i=99;i<1;i=i-2)
+		{
+		System.out.print(i+"\t");
+		if((i+1)%20==0)
+		{
+			System.out.println();
+		}
+		}
+	}
+}
+p4
+int s=0;
+		for(int i=1; i<=100;i++)
+		{
+			s=s+i;
+		}
+		System.out.println("ans="+s);
+	}
+
+}
+p5
+double s=0;
+		for(int i=1;i<=100;i++)
+		{
+			s=s+1.0/i;
+		}
+		System.out.print("ans"+s);
+	}
+
+}
+p5
+double s=0;
+		for(int i=1;i<=100;i++)
+		{
+			s=s+(i+2.0)/(i*(i+1.0));
+		}
+		System.out.println("ans="+s);
+	}
+
+}

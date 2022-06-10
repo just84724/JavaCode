@@ -1,0 +1,86 @@
+p1
+	System.out.println(" \t\t1\t2\t3\t4\t5\t6\t7\t8\t9");
+		System.out.println("===========================================================================================");
+		for(int i=1;i<=9;i++)
+		{
+			System.out.print(i+"\t|\t");
+			for(int j=1;j<=9;j++)
+			{
+				System.out.print(i*j+"\t");
+			}
+			System.out.println();
+		}
+	}
+
+}
+p2
+int[][]a=new int[4][4];
+		int[][]b=new int[4][3];
+		int[][]c=new int[4][3];
+		for(int i=0;i<4;i++)
+		{
+			for(int j=0;j<4;j++)
+			{
+				a[i][j]=(int)(Math.random()*20+1);
+			}
+		}
+		for(int i=0;i<4;i++)
+		{
+			for(int j=0;j<3;j++)
+			{
+				b[i][j]=(int)(Math.random()*20+1);
+			}
+		}
+		for(int i=0;i<=3;i++)
+		{
+			for(int j=0;j<=2;j++)
+			{
+			c[i][j]=a[i][0]*b[0][j]+
+			a[i][1]*b[1][j]+
+			a[i][2]*b[2][j]+
+			a[i][3]*b[3][j];
+			//好一點的作法
+			//for(int k=0;k<=3;k++
+			//{c[i][j]=c[i][j]+a[i][k]*b[k][j]};
+			}
+		
+		}
+		for(int i=0;i<4;i++)
+		{
+			for(int j=0;j<3;j++)
+			{
+				System.out.print(c[i][j]+"\t");
+			}
+			System.out.println();
+		}
+		
+
+	}
+
+}
+p3課後補救教學
+int[]m=new int[100];
+		for(int i=0; i<100; i++)
+		{
+			m[i]=(int)(Math.random()*100+1);
+		}
+		for(int i=0; i<=98; i++)
+		{
+			for(int j=i+1; j<=99; j++)
+			{
+				if(m[i]<m[j])
+				{
+					int t;
+					t=m[i];
+					m[i]=m[j];
+					m[j]=t;
+				}
+			}
+		}
+			for(int i=0; i<100; i++)
+			{
+				System.out.println(m[i]+"\t");
+			}
+		}
+	}
+

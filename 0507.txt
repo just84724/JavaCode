@@ -1,0 +1,113 @@
+p1
+	class Parent
+	{
+		public int var1;
+		protected int var2;
+		private int var3;
+		public Parent(int a,int b,int c)//設定建構子
+		{
+			var1=a;
+			var2=b;
+			var3=c;
+		}
+		private void printvar3()//屬於私人的
+		{
+			System.out.println("var3="+var3);
+		}
+		protected void printl()//在同個package底下所以可以呼叫print1
+		//不同package就不能使用這個類別的裡的東西
+		{
+			System.out.println("var1="+var1+"var2="+var2);
+		}
+		public void print2()
+		{
+			System.out.println("var1="+var1+"var2="+var2);
+		}
+		public void print3()//必須透過方法拿這個類別的東西
+		{
+			printvar3();
+		}
+	}
+public class p01 {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Parent p=new  Parent(10,20,30);
+		p.printl();
+		p.print2();
+		p.print3();
+		//p.printvar3();
+	}
+
+}
+p2
+	class Child extends Parent
+	{
+		public Child(int a,int b,int c)
+		{
+			var1=a;
+			var2=b;
+			setvar3(c);
+			//super(a,b,c);
+		}
+		public void printAll()//在子類別下可以做新的功能
+		{
+			print2();
+			print3();
+		}
+	}
+	//public void print1()//現在這個類別已經是子類別下的東西了(覆寫)
+		{
+			//test=200;
+			//printAll();
+		}
+	}
+	class Parent
+	{
+		public int var1;
+		protected int var2;
+		private int var3;//私人的(父類別裡面)
+		public Parent(int a,int b,int c)//設定建構子
+		{
+			var1=a;
+			var2=b;
+			var3=c;
+		}
+		public void setvar3  (int c)//var3屬於私人的所以要產生新的類別才能夠使用var3
+		{
+			var3=c;//因為C已經在私人的參數裡面了 使用int C就可以產生出來C
+		}
+		public Parent()//必須要有建構子
+		{
+			
+		}
+		private void printvar3()//屬於私人的要透過方法才能拿這個類別的東西
+		{
+			System.out.println("var3="+var3);
+		}
+		protected void printl()//在同個package底下所以可以呼叫print1
+		//不同package就不能使用這個類別的裡的東西
+		{
+			System.out.println("var1="+var1+"var2="+var2);
+		}
+		public void print2()
+		{
+			System.out.println("var1="+var1+"var2="+var2);
+		}
+		public void print3()//必須透過方法拿這個類別的東西
+		{
+			printvar3();
+		}
+	}
+public class p01 {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Child p=new  Child(10,20,30);
+		p.printl();
+		p.print2();
+		p.print3();
+		//p.printvar3();
+		//p.printAll();
+		System.out.println("test="+p.test);
+	}
+
+}

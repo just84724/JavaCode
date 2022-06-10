@@ -1,0 +1,23 @@
+p2
+int[]m=new int[20];
+		for(int i=0;i<20;i++)
+		{
+			m[i]=(int)(Math.random()*20+1);
+		}
+		double avg=0;
+		for(int i=0;i<20;i++)
+		{
+			avg=avg+m[i];
+		}
+		avg=avg/20;
+		double variance = 0;
+		for(int i=0;i<20;i++)
+		{
+			variance=variance+(m[i]-avg)*(m[i]-avg);
+		}
+		variance=Math.sqrt(variance/20);
+		System.out.println("ans="+variance);               
+
+	}
+
+}

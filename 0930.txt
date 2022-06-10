@@ -1,0 +1,4 @@
+int year=18;
+		String name="½²´¼¥à";
+		System.out.println("name="+name+"¦~ÄÖ="+year);
+		System.out.println("³Ì«Ó®ð );

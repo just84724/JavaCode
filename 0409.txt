@@ -1,0 +1,215 @@
+p1
+class math   加減乘除法(普通方法)
+{
+	private int num1;
+	private int num2;//使用private後 這個值只能在這個類別裡面其他類別不能使用
+	public int add()
+	{
+		return(num1+num2);//加法
+	}
+	public int substrat()
+	{
+		return(num1-num2);//減法
+	}
+	public void setdata(int a ,int b)
+	{
+		num1=a;//
+		num2=b;
+	}
+	public int multuply()//乘法
+	{
+		return(num1*num2);
+	}
+	public int divide()//除法
+	{
+		return(num1/num2);
+	}
+}
+public class p01 {
+	
+	public static void main(String[] args) {
+		math m=new math();
+		//m.setdata(20,10);
+		System.out.println("add:"+m.add());
+		System.out.println("substrat:"+m.substrat());//m.某個值 是呼叫上面的類別
+		System.out.println("multuply:"+m.multuply());
+		System.out.println("divide:"+m.divide());
+		}
+	}
+p2
+class math  加減乘除法 (進階方法)
+{
+	private int num1;
+	private int num2;//使用private後 這個值只能在這個類別裡面其他類別不能使用
+	public int add()
+	{
+		return(num1+num2);//加法
+	}
+	public int substrat()
+	{
+		return(num1-num2);//減法
+	}
+	public void setdata(int a ,int b)
+	{
+		num1=a;//由於加上private所以要用回傳值給主程式
+		num2=b;
+	}
+	public math(int a,int b)
+	{
+		num1=a;
+		num2=b;
+	}
+	public int multuply()//乘法
+	{
+		return(num1*num2);
+	}
+	public int divide()//除法
+	{
+		return(num1/num2);
+	}
+}
+public class p02 {
+	
+	public static void main(String[] args) {
+		math m=new math(20,10);
+		//m.setdata(20,10);
+		System.out.println("add:"+m.add());
+		System.out.println("substrat:"+m.substrat());//m.某個值 是呼叫上面的類別
+		System.out.println("multuply:"+m.multuply());
+		System.out.println("divide:"+m.divide());
+	}
+
+}
+p3
+class triangle 算三角形面積
+{
+	private int a,b,c;
+	public String area;
+	public String length;
+	public triangle(int a,int b ,int c)//*****設定起始值
+	{
+		this.a=a;//*
+		this.b=b;//*
+		this.c=c;//*
+	}
+	private boolean test()//判斷是否為三角形
+	{
+		if(b+c>a&&c+a>b&&a+b>c)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	public double area()//計算面積
+	{
+	 if(test())//*
+	 {
+		 double s=(a+b+c)/2;//*
+		 return Math.sqrt(s*(s-a)*(s-b)*(s-c));//*
+	 }
+	 else 
+		 {
+		 return 0;//*
+		 }
+	}
+	public  int length()//計算周長
+	{
+		if(test())//*
+		{
+			return a+b+c;//*
+		}
+		else 
+		{
+			 return 0;//*
+		}
+	}
+}
+
+public class p03 {
+	public static void main(String[] args) {
+		 triangle t=new  triangle(10,15,20);//**
+		System.out.println("面積:"+t.area());
+		System.out.println("周長:"+t.length());
+	}
+
+}
+p4(未完成)
+計算設定建構子 最大值 最小值 排序(由大到小) 標準差 主程式印出
+class dataprocess
+{
+	int[]m=new int[4];
+	public dataprocess (int a,int b,int c,int d)
+	{
+		m[0]=a;
+		m[1]=b;
+		m[2]=c;
+		m[3]=d;
+	}
+	public int max()
+	{
+	int max=0;
+	if(max<m[0])
+	{
+	max=m[0];
+	}
+	else if(max<m[1])
+	{
+	max=m[1];	
+	}
+	else if(max<m[2])
+	{
+	max=m[2];	
+	}
+	else if(max<m[3])
+	{
+	max=m[3];
+	}
+	return max;
+	}
+	public int min()
+	{
+		int min=0;
+		if(min>m[0])
+		{
+			min=m[0];
+		}
+		else if(min>m[1])
+		{
+			min=m[1];
+		}
+		else if(min>m[2])
+		{
+			min=m[2];
+		}
+		else if(min>m[3])
+		{
+			min=m[3];
+		}
+		return min;
+	}
+	public void sort()
+	{
+		for(int i=0; i<4; i++)
+		{
+			if(m[0]>m[1])
+			{
+				
+			}
+		}
+	}
+	public double sd()
+	{
+		
+	}
+}
+public class p04 {
+	
+	public static void main(String[] args) {
+
+	}
+
+}
+

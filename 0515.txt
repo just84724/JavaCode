@@ -1,0 +1,216 @@
+import java.util.Scanner;
+ class shape
+{
+	double area;
+	double perimeter;
+	String stype;
+	public void PrintArea()
+	{
+		System.out.println("面積="+area);
+	}
+	public void Printperimeter()
+	{
+		System.out.println("周長="+perimeter);
+	}
+	public double GetArea()
+	{
+		return area;
+	}
+	public void CArea()//計算面積
+	{
+		
+	}
+	public void cperimeter()//計算周長
+	{
+		
+	}
+	public String GetSTyper()
+	{
+		return stype;
+	}	
+}
+class Circle extends shape
+{
+	double r;
+	public Circle(double l)
+	{
+		r=l;
+		stype="圓形";
+	}
+	public void CArea()//覆蓋上面的
+	{
+		area=3.1416*r*r;
+	}
+	public void cperimeter()//覆寫(改寫)
+	{
+		perimeter=2*3.1416*r;
+	}
+}
+class Triangle extends shape
+{
+	int a,b,c;
+	public Triangle(int l1,int l2,int l3)
+	{
+		a=l1;
+		b=l2;
+		c=l3;
+		stype="三角形";
+	}
+	public void CArea()
+	{
+		double s=(a+b+c)/2.0;
+		area=Math.sqrt(s*(s-a)*(s-b)*(s-c));
+	}
+	public void cperimeter()
+	{
+		perimeter=(a+b+c);
+	}
+}
+class Rectangle extends shape
+{
+	int a,b;//長跟寬
+	public Rectangle(int l1,int l2)
+	{
+		a=l1;
+		b=l2;
+		stype="矩形";
+	}
+	public void CArea()
+	{
+		area=a*b;
+	}
+	public void cperimeter()
+	{
+		perimeter=2*(a+b);
+	}
+}
+class process
+{
+	Scanner sc=new Scanner(System.in);
+	shape[] s=new shape[10];//形狀陣列
+	int no=-1;
+	public int MainMenu()
+	{		
+		int z;
+		System.out.println("請輸入1.新增2.排序3.列印4.離開");
+		return z=sc.nextInt();		
+	}
+	public int shapeMenu()
+	{
+		int x;
+		System.out.println("請輸入您要的形狀");
+		System.out.println("1.三角形");
+		System.out.println("2.圓形");
+		System.out.println("3.矩形");
+		return x=sc.nextInt();
+	}
+	public Circle CreateCircle()
+	{
+		double r;
+		System.out.println("請輸入半徑");
+		r=sc.nextDouble();
+		Circle c=new Circle(r);
+		return c;
+	}
+	public Triangle CreateTriangle()
+	{
+		int a,b,c;
+		System.out.println("請輸入三個邊長");
+		a=sc.nextInt();
+		b=sc.nextInt();
+		c=sc.nextInt();
+		Triangle t=new Triangle(a,b,c);
+		return t;
+	}
+	public Rectangle CreateRectangle()
+	{
+		int a,b;
+		System.out.println("請輸入長跟寬");
+		a=sc.nextInt();
+		b=sc.nextInt();
+		Rectangle r=new Rectangle(a,b);
+		return r;
+	}
+	public void operation()
+	{
+		int sel=MainMenu();	//呼叫mainmenu
+		{
+			while(sel!=4)
+			{
+				
+				if(sel==1)
+				{
+					int ssel=shapeMenu();//呼叫shapemenu
+					no=no+1;//裡面有資料no就+1
+					if(ssel==1)
+					{
+						s[no]=CreateTriangle();//把createtriangle放進NO陣列裡面(在第0個位置)
+						s[no].CArea();//周長(一樣放進createtriangle()裡面)
+					}
+					else if(ssel==2)
+					{
+						s[no]=CreateCircle();
+						s[no].CArea();
+					}
+					else if(ssel==3)
+					{
+						s[no]=CreateRectangle();
+						s[no].CArea();
+					}
+				}
+				else if(sel==2)//*****
+				{
+					sort();
+				}
+				else if(sel==3)//*****
+				{
+					print();
+				}
+				sel=MainMenu();//到這裡就不做了(大於4)
+			}
+		}
+	}
+	public void sort()//排序
+	{
+		for(int i=0;i<=no;i++)
+		{
+			for(int j=i+1;j<=no;j++)
+			{
+				if(s[i].GetArea()<s[j].GetArea())
+				{
+					shape t;
+					t=s[i];
+					s[i]=s[j];
+					s[j]=t;
+				}
+			}
+		}		
+	}
+	public void print()//印出
+	{
+		for(int i=0;i<=no;i++)
+		{
+			System.out.println(s[i].GetSTyper()+"\t"+"面積="+s[i].GetArea());
+		}
+	}
+}
+public class p01 {
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		shape[] s=new shape[10];
+		s[0]=new Circle(10);//在S陣列第0個位置放進cricle並給予值
+		s[1]=new Circle(15);
+		s[2]=new Rectangle(10,15);
+		s[3]=new Triangle(5,10,8);
+		s[4]=new Rectangle(6,20);
+		for(int i=0;i<5;i++)//執行5次
+		{
+			s[i].CArea();
+			System.out.println(s[i].GetSTyper()+"\t"+"面積="+s[i].GetArea());
+		}
+		process p=new process();
+		p.operation();
+		System.out.println("process="+p.toString());
+		}
+	}

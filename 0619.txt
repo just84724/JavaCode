@@ -1,0 +1,210 @@
+p1
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+public class p01 {
+	public static void main(String[] args) throws IOException{
+		String s="x"+"\n"+"x"+"\r";
+		char[] c={'e','n','d'};
+		BufferedWriter fw=new BufferedWriter(new FileWriter("c:\\ss"));
+		fw.write(s);
+		fw.newLine();
+		fw.write(c);
+		fw.newLine();
+		fw.flush();
+		fw.close();
+	}
+}
+p2
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+class productdata
+{
+	String id;
+	String name;//不需要建構子 因為要重複讀取資料
+	int price;
+	int qty;
+	Scanner sc=new Scanner(System.in);
+	public void inputdata()
+	{
+		try
+		{
+		int goon=1;
+		BufferedWriter fw=new BufferedWriter(new FileWriter("c:\\test01.txt"));
+		while(goon==1)
+		{
+			System.out.print("請輸入商品編號");
+			id=sc.next();
+			System.out.println("請輸入名稱");
+			name=sc.next();
+			System.out.println("請輸入售價");
+			price=sc.nextInt();
+			System.out.println("請輸入數量");
+			qty=sc.nextInt();
+			fw.write(id+"\t"+name+"\t"+price+"\t"+qty+"\t");
+			fw.newLine();
+			System.out.println("繼續輸入?1:Yes或No");
+			goon=sc.nextInt();
+			fw.flush();
+			fw.close();
+		}
+	}
+		catch(IOException e)
+		{
+			System.out.println("錯誤");
+		}
+}
+}
+public class p02 {
+	public static void main(String[] args) {
+		productdata pd=new productdata();
+		pd.inputdata();
+	}
+}
+p3(商品編號 名稱 售價 數量)
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+class product
+{
+	String id;
+	String name;
+	int price;
+	int qty;
+	int avg;
+	public product(String sid,String sname,int sprice,int sqty)
+	{
+		id=sid;
+		name=sname;
+		price=sprice;
+		qty=sqty;
+	}
+	public void print()
+	{
+		 System.out.println(id+"\t"+name+"\t"+price+"\t"+qty+"\t");
+	}
+	public int gettotal()
+	{
+		return price*qty;
+	}
+	public String getproduct()
+	{
+		return  id+"\t"+name+"\t"+price+"\t"+qty+"\t"+gettotal();
+	}
+	public int getavg()
+	{
+		return avg;
+	}
+	public String getid()
+	{
+		return id;
+	}
+	public String getname()
+	{
+		return name;
+	}
+}
+class ProductProcess
+{
+	product[]p=new product[60];
+	int no=0;
+	public void inputproduct()throws IOException
+	{
+		Scanner sc=new Scanner(new File("c:\\0618.txt"));
+		String id;
+		String name;
+		int price;
+		int qty;
+		while(sc.hasNext())
+		{
+			id=sc.next();
+			name=sc.next();
+			price=sc.nextInt();
+			qty=sc.nextInt();
+			p[no]=new product(id,name,price,qty);
+			no=no+1;
+		}
+	}
+		public void print()
+		{
+			System.out.println("商品編號"+"售價"+"數量");
+			for(int i=0; i<no; i++)
+			{
+				p[i].print();
+			}
+		}
+		public String getMin()
+		{
+			int min=0;
+			for(int i=1; i<no; i++)
+			{
+			if(p[min].gettotal()<p[i].gettotal())
+			{
+				min=i;
+			}
+			}
+			return p[min].getid()+"\t"+p[min].getname();
+		}
+		public float getAvg()
+		{
+			int s=0;
+			for(int i=1; i<no; i++)
+			{
+				s=s+p[i].gettotal();
+			}
+			s=s/no;
+			return s;
+		}
+		public String getMax()
+		{
+			int max=0;
+			for(int i=1; i<no; i++)
+			{
+				if(p[max].gettotal()<p[i].gettotal())
+				{
+					max=i;
+				}
+			}
+			return p[max].getid()+"\t"+p[max].getname();
+		}
+		public void report()throws IOException
+		{
+			BufferedWriter fw=new BufferedWriter(new FileWriter(".."));
+			for(int i=0; i<no; i++)
+			{
+				fw.write(p[i].getproduct());
+				fw.newLine();
+			}
+		}
+		public void sort()
+		{
+			for(int i=0; i<no; i++)
+			{
+				for(int j=i+1; i<=no-1; j++)
+				{
+					if(p[i].gettotal()<p[j].gettotal())
+					{
+						product t;
+						t=p[i];
+						p[i]=p[j];
+						p[j]=t;
+					}
+				}
+			}
+		}
+	}
+public class p04 {
+	public static void main(String[] args) throws IOException{
+		ProductProcess pp=new ProductProcess();
+		pp.inputproduct();
+		pp.sort();
+		pp.print();
+		pp.report();
+		}
+	}

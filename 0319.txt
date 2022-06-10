@@ -1,0 +1,121 @@
+import java.util.Scanner;
+//題目:給予20個值排大小序標準差
+public class p031901 {
+	public static int menu()//選擇1-6的數
+	{
+		int menu=0;
+		Scanner sc=new Scanner(System.in);
+		System.out.println();
+		menu=sc.nextInt();		
+		return menu;
+	}
+	public static void inputdata(int[]data)//產生20個值
+	{
+		for(int i=0;i<20;i++)
+		{
+			data[i]=(int)(Math.random()*91+10);
+			System.out.print(data[i]+" ");
+		}		
+		System.out.println();
+	}
+	public static int max(int[]data)//選出最大值
+	{
+		int max=data[0];
+
+			for(int i=0;i<20;i++)
+			{
+				if(max<data[i])
+				{
+					max=data[i];					
+				}			
+			}
+		return max;
+	}
+	public static int min(int[]data)//選出最小值
+	{
+		int min=data[0];
+		for(int i=0;i<20;i++)
+		{
+			if(min>data[i])
+			{
+				min=data[i];					
+			}			
+		}
+		return min;
+	}
+	public static int Sdeviation(int[]data)//算出標準差
+	{
+		int Sdeviation=0,avg=0;
+		for(int i=0;i<20;i++)
+		{
+			avg=avg+data[i];
+		}
+		avg=avg/20;
+		for(int i=0;i<20;i++)
+		{
+			Sdeviation=Sdeviation+(data[i]-avg)*(data[i]-avg);
+		}
+		Sdeviation=Sdeviation/20;
+		Sdeviation=(int)(Math.sqrt(Sdeviation));
+		return Sdeviation;
+	}
+	public static void sort(int[]data)//排序大到小並印出
+	{
+		int a;
+		for(int i=0;i<20;i++)
+		{
+			for(int j=i+1;j<20;j++)
+			{
+				if(data[i]<data[j])
+				{
+					a=data[i];
+					data[i]=data[j];
+					data[j]=a;
+				}
+			}
+		}
+		for(int i=0;i<20;i++)
+		{
+			System.out.print(data[i]+" ");					
+		}
+		System.out.println();
+	}	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		boolean finish=false;
+		int n;
+		int[]m=new int[20];
+		while(finish==false)
+		{
+			System.out.println("1.輸入值");
+			System.out.println("2.印最大值");
+			System.out.println("3.印最小值");
+			System.out.println("4.印標準差");
+			System.out.println("5.印排序");
+			System.out.println("6.離開");
+			n=menu();
+			switch(n)
+			{
+				case 1:
+					inputdata(m);
+					break;
+				case 2:
+					System.out.println("最大值="+max(m));					
+					break;
+				case 3:
+					System.out.println("最小值="+min(m));					
+					break;
+				case 4:
+					System.out.println("標準差="+Sdeviation(m));					
+					break;
+				case 5:
+					sort(m);					
+					break;
+				case 6:
+					finish=true;
+					break;
+			}
+		}
+		System.out.println("程式結束");
+	}
+}

@@ -1,0 +1,88 @@
+p1
+		int [] m={23,60,30,21,50,80,90,60,54,35};
+		int pos=0,s=0;
+		for(int i=1; i<=9;i++)
+		{
+			if(m[pos]<m[i])
+			{
+			pos=i;	
+			}
+		}
+			System.out.println("pos="+pos+"value"+m[pos]);
+		}
+	}
+p2
+int [] m={23,60,30,21,50,80,90,60,54,35};
+		for(int i=0;i<9; i++)
+		{
+			int pos=i;
+		for(int j=i+1; j<=9;j++)
+		{
+			if(m[pos]<m[j])
+			{
+			pos=j;	
+			}
+		}
+			int t=m[pos];
+			m[pos]=m[i];
+			m[i]=t;
+			for( i=0; i<=9; i++)
+			{
+			System.out.print(m[i]+"\t");	
+			}
+		}
+		}
+	}
+p3
+題目為計算日期和星期幾??
+	int []month={31,28,31,30,31,30,31,31,30,31,30,31};
+		String[] weak={"日","一","二","三","四","五","六"};
+		int y,m,d;
+		int td=0;//
+		Scanner sc=new Scanner (System.in);
+		System.out.print("請輸入年");
+		y=sc.nextInt();
+		System.out.print("月");
+		m=sc.nextInt();
+		System.out.print("日");
+		d=sc.nextInt();
+		System.out.println("請輸入"+y+"年"+m+"月"+d+"日");
+		if(y%4==0&&y%100!=0||y%400==0)//可被4整除但不被100整除可被400整除
+		{
+		month[1]=29;//二月要加上一天
+		}
+		for(int i=0; i<=m-2; i++)//計算8月16日因為之前0~6個月是完整月所以減掉2
+		{
+			td=td+month[i];//累加月數
+		}
+		td=td+d;//累加8月16日所以要算16日
+		y=y-1;//減掉2012年的完整月
+		td=td+y*365+y/4-y/100+y/400;
+		td=+td%7;//一個禮拜有七天所以除掉7餘數
+		System.out.println("星期"+weak[td]);
+}
+}
+p4
+計算最大公因數
+		int a,b,m,n;
+		Scanner sc=new Scanner (System.in);
+		System.out.print("請輸入分母");
+		a=sc.nextInt();
+		System.out.print("請輸入分子");
+		b=sc.nextInt();
+		m=a;
+		n=b;
+		int k;
+		int r=m%n;
+		while(r!=0)
+		{
+			m=n;
+			n=r;
+			r=m%n;
+		}
+		k=n;
+		System.out.println("分子"+b/n);
+		System.out.println("分母"+a/n);
+	}
+
+}

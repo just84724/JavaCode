@@ -1,0 +1,126 @@
+P1
+	int [][] m=new int[5][5];//設為五列五行
+		for(int i=0; i<5; i++)//控制下面的迴圈
+		{
+		for(int j=0; j<5; j++)//開始運行
+		m[i][j]=i*5+(j+1);//運行的值= i行*5 j列+1
+			}
+		for(int i=0; i<5; i++)//印出結果
+			{
+		for(int j=0; j<5; j++)
+				{
+		System.out.println(m[i][j]+"\t");//i j為索引
+			}
+		System.out.println( );
+P2
+int[][] m=new int [5][5];
+		for(int i=0; i<5; i++)//控制下面的迴圈
+		{
+			for(int j=0; j<5; j++)//開始運行
+				m[i][j]=i*5+(j+1);//運行的值= i行*5 j列+1
+			}
+		for(int i=1; i<=4; i++)
+		{
+			for(int j=0; j<=i-1; j++)//
+			{
+			int t=m[i][j];//i跟j互換
+			m[i][j]=m[j][i];
+			m[j][i]=t;
+			}
+		}
+			for(int i=0; i<5; i++)//印出結果
+			{
+				for(int j=0; j<5; j++)
+				{
+					System.out.print(m[i][j]+"\t");
+			}
+				System.out.println( );
+P3
+int [][] m=new int[5][5];
+		for(int i=0; i<5; i++)//控制下面的迴圈
+		{
+			for(int j=0; j<5; j++)//開始運行
+				m[i][j]=i*5+(j+1);//運行的值= i行*5 j列+1
+			}
+		for(int i=0; i<=4; i++)
+		{
+			for(int j=0; j<=1; j++)
+			{
+			int t=m[i][j];
+			m[i][j]=m[i][4-j];
+			m[i][4-j]=t;     
+			}
+		}
+			for(int i=0; i<5; i++)//印出結果
+			{
+				for(int j=0; j<5; j++)
+				{
+					System.out.print(m[i][j]+"\t");//i j為索引
+			}
+				System.out.println( );
+P4
+	int [][] m=new int[5][5];
+		for(int i=0; i<5; i++)//控制下面的迴圈
+		{
+			for(int j=0; j<5; j++)//開始運行
+				m[i][j]=i*5+(j+1);//運行的值= i行*5 j列+1
+			}
+		for(int i=0; i<=4; i++)
+		{
+		for(int j=0; j<=4; j++)
+		{
+		int t=m[i][j];// 4-i上下互換
+		m[i][j]=m[4-i][j];
+		m[4-i][j]=t;
+		}
+		}
+		for(int i=0; i<5; i++)//印出結果
+		{
+			for(int j=0; j<5; j++)
+			{
+				System.out.print(m[i][j]+"\t");//i j為索引
+		}
+			System.out.println( );
+P5
+int[] [] m=new int[5][5];
+		for(int i=0; i<5; i++)//控制下面的迴圈
+		{
+			for(int j=0; j<5; j++)//開始運行
+				m[i][j]=i*5+(j+1);//運行的值= i行*5 j列+1
+			}
+		for(int i=0; i<=3;i++)
+		{
+		for(int j=0; j<=4-i;j++)
+		{
+			int t=m[i][j];
+			m[i][j]=m[4-i][4-j];//i跟j互換 4-i 為4減掉i行
+			m[4-i][4-j]=t;
+		}
+		}
+		for(int i=0; i<5; i++)//印出結果
+		{
+			for(int j=0; j<5; j++)
+			{
+				System.out.print(m[i][j]+"\t");//i j為索引
+		}
+			System.out.println( );
+		}
+P6  回家作業
+int [] [] m=new int[5][5];
+		int r=0,c=0;//列跟行
+		for(int n=2; n<=25; n++)
+		{
+			if(c==4)
+			{
+				
+			}
+			else if(r==0)//找出下一個位置
+			{
+				
+			}
+			else
+			{
+				r=r-1; //正常規則
+				c=c+1;
+			}
+			m[r][c]=n;//填值

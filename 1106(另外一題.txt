@@ -1,0 +1,89 @@
+A商品價格100元, B商品價格60元, C商品價格40元
+若A、 B、 C 各買一個, 總價打85折
+1. 輸入A, B, C 的購買數量, 計算最低應付金額, 若金額>=5000元可以再打95折, 印出應付金額
+2. 輸入付款金額, 印出應找金額與找回最少紙鈔與硬幣的方式
+ex: A買20 B 買28 C 買15
+則最少應付為 (100+60+40)*15*0.85 + 100*5 + 60*13
+double s,m=0,a,b,c,min;
+		Scanner sc=new Scanner(System.in);
+		System.out.println("請輸入a購買數");
+		a=sc.nextInt();
+		System.out.println("請輸入b購買數");
+		b=sc.nextInt();
+		System.out.println("請輸入c購買數");
+		c=sc.nextInt();		
+		min=a;
+		if(a>0&&b>0&&c>0)
+		{
+			if(min>c)
+			{
+				min=c;
+				if(min>b)
+				{									
+					m=(100+60+40)*b*0.85+(a-b)*100+(c-b)*40;
+				}
+				else
+				{
+					m=(100+60+40)*c*0.85+(a-c)*100+(b-c)*60;	
+				}
+			}
+			else if(min>b)
+			{
+				min=b;
+				if(min>c)
+				{
+					m=(100+60+40)*c*0.85+(a-c)*100+(b-c)*60;
+				}
+				else
+				{
+					m=(100+60+40)*b*0.85+(a-b)*100+(c-b)*40;	
+				}
+			}
+			else
+			{
+				m=(100+60+40)*a*0.85+(b-a)*60+(c-a)*40;
+			}
+		}
+		if(m>=5000)
+		{
+			m=m*0.95;
+		}
+		System.out.println("應付金額="+m);
+		System.out.println("請輸入付款金額");
+		s=sc.nextInt();
+		System.out.println("找您");
+		s=s-m;
+		if(s>=1000)
+		{
+			System.out.println("1000元"+(int)s/1000+"張");
+			s=(int)s%1000;
+		}
+		if(s>=500)
+		{
+			System.out.println("500元"+(int)s/500+"張");
+			s=(int)s%500;
+		}
+		if(s>=100)
+		{
+			System.out.println("100元"+(int)s/100+"張");
+			s=(int)s%100;
+		}
+		if(s>=50)
+		{
+			System.out.println("50元"+(int)s/50+"張");
+			s=(int)s%50;
+		}
+		if(s>=10)
+		{
+			System.out.println("10元"+(int)s/10+"張");
+			s=(int)s%10;
+		}
+		if(s>=5)
+		{
+			System.out.println("5元"+(int)s/5+"張");
+			s=(int)s%5;
+		}
+		if(s>=1)
+		{
+			System.out.println("1元"+(int)s/1+"張");			
+		}

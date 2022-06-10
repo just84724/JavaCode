@@ -1,0 +1,100 @@
+class Parent
+{
+	public int a;
+	public int b;
+	public void setdata(int x,int y)
+	{
+		a=x;
+		b=y;
+	}
+	public void printA()
+	{
+		System.out.println("a="+a);
+	}
+	public void printB()
+	{
+		System.out.println("b="+b);
+	}
+}
+class Child extends Parent
+{
+	
+}
+public class p01 {
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Child c=new Child();
+		c.setdata(10,20);
+		c.printA();
+		c.printB();
+	}
+
+}
+p2
+class shape
+{
+	protected double area;
+	protected double perimter;
+	public shape()
+	{
+		
+	}
+	public void printarea()
+	{
+		System.out.println("­±¿n="+area);
+	}
+	public void printperimter()
+	{
+		System.out.println("©Pªø="+perimter);
+	}
+}
+class Triangle extends shape
+{
+	int a,b,c;
+	public Triangle(int x ,int y ,int z)
+	{
+		a=x;
+		b=y;
+		c=z;
+		double s=(a+b+c)/2.0;
+		area=Math.sqrt(s*(s-a)*(s-b)*s-c);
+		perimter=a+b+c;
+	}
+class cicle extends shape
+{
+	int r;
+	public cicle (int a)//¥b®|
+	{
+	a=r;	
+	area=3.146*r*r;	
+	perimter=2+3.1416*r;
+	}
+}
+class rectangle extends shape
+{
+	int a,b;
+	public rectangle(int x,int y)
+	{
+		a=x;
+		b=y;
+		area=a*b;
+		perimter=2*(a+b);
+	}
+}
+}
+public class p02 {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		shape[] s=new shape[3];
+		s[0]=new Triangle(10,15,20);
+		s[1]=new cicle(10);
+		s[2]=new rectangle(10,20);
+		for(int i=0; i<3; i++)
+		{
+			s[i]printarea();
+			s[i]printperimter();
+		}
+	}
+
+}

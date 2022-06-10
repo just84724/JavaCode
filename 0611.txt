@@ -1,0 +1,54 @@
+p1題目為讀取資料
+import java.io.FileReader;
+import java.io.IOException;
+public class p02 {
+	public static void main(String[] args) throws IOException {
+		char buffer[]=new char[32];//字元陣列
+		FileReader fr=new FileReader("C:\\eclipse\\test01.txt");//filenotfoundException是屬於IOException底下
+		//所以只需要throwsIOException就可以//這個需要自己配置緩衝區
+		int len;
+		String s;
+		while((len=fr.read(buffer))!=-1)//不等於-1時候就不會印出(都會有字)
+		{
+		s=new String(buffer,0,len);//字元轉換字串
+		fr.close();
+		System.out.println(s);	
+	}
+}
+}
+p2(有改過)題目為讀取資料
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class p03 {
+	
+	public static void main(String[] args) throws IOException{
+		String s;
+		BufferedReader br=new BufferedReader(new FileReader("c:\\eclipse\\test01.txt"));//這一個不需要配置緩衝區
+		while((s=br.readLine())!=null)
+		{
+			System.out.println(s);
+		}
+		br.close();
+	}
+}
+p3(改過)讀取資料
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+
+public class p03 {
+	
+	public static void main(String[] args) throws IOException{
+		String s;
+		BufferedReader br=new BufferedReader(new FileReader("c:\\eclipse\\test01.txt"));//這一個不需要配置緩衝區
+		while((s=br.readLine())!=null)
+		{
+			System.out.println(s);
+		}
+		br.close();
+	}
+
+}

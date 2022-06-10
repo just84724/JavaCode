@@ -1,0 +1,106 @@
+p1
+import java.lang.*;
+import java.io.BufferedReader;
+import java.io.Console;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+class fraction
+{
+public fraction()
+{ 
+ buf=new BufferedReader(new InputStreamReader(System.in));//
+}
+private BufferedReader  buf;
+private int numerator; //分子
+private int denominator; //分母
+public void set_value()throws IOException//出錯時就會丟給java虛擬機器(誰呼叫誰就把問題丟給他
+{
+String text;
+System.out.print("輸入分子:");
+numerator=Integer.parseInt(buf.readLine());//會出現一個問題出現IOException
+text=buf.readLine();
+System.out.print("輸入分母:");
+denominator=Integer.parseInt(buf.readLine());
+text=buf.readLine();
+}
+public void print_value()
+{
+System.out.print(numerator + "/" + denominator + "=");
+System.out.println(numerator/denominator);
+}
+}
+public class ch1001 {
+	public static void main(String[] args) throws IOException{
+		// TODO Auto-generated method stub
+		fraction obj= new fraction();
+		obj.set_value();
+		obj.print_value();
+	}
+
+}
+p2
+import java.lang.*;
+import java.io.Console;
+public class ch10_07 {
+
+	public static void main(String[] args) throw IOException{
+		// TODO Auto-generated method stub
+		Console console=System.console();
+		System.out.print("請輸入陣列大小:");
+		int lottoSize=0;
+		try
+		{
+		lottoSize=Integer.parseInt(console.readLine());
+		if(lottoSize>48)
+		throw new CmyException1("例外訊息:陣列太大");
+		else if(lottoSize<6)
+		throw new CmyException2("例外訊息:陣列太小");
+		}
+		catch(NumberFormatException e)
+		{
+		System.out.println("球數不為數字,將被設定為6球");
+		lottoSize=6;
+		}
+		catch( CmyException2 e)
+		{
+		System.out.println("例外訊息:陣列大小將被重設為6");
+		lottoSize=6;
+		}
+		catch(CmyException1 e)
+		{
+			System.out.println("例外訊息:陣列大小將被重設為6");
+			lottoSize=6;
+		}
+		finally
+		{
+		System.out.println("樂透開獎球數為" + lottoSize);
+		}
+		int lottoAry[] = new int[lottoSize];
+		System.out.println("存放樂透開獎的陣列實體產生完畢");
+		}
+	}
+		class CmyException1 extends Exception
+		{
+		public CmyException1() //建構子
+		{
+		super();
+		}
+		public CmyException1(String msg) //建構子
+		{
+		super();
+		System.out.println(msg);
+		}
+		}
+		class CmyException2 extends Exception
+		{
+		public CmyException2() //建構子
+		{
+		super();
+		}
+		public CmyException2(String msg) //建構子
+		{
+		super();
+		System.out.println(msg);
+		}
+		}

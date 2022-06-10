@@ -1,0 +1,168 @@
+p1
+import java.util.Scanner;
+
+
+public class p01 {
+	public static int menu()
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("1.產生成績");
+		System.out.println("2.計算名次");
+		System.out.println("3.排序");
+		System.out.println("4.平均值,最大,最小值,標準差");
+		System.out.println("5.成績分布圖");
+		int n=sc.nextInt();
+		return n;
+	}
+	public static void aa(int [][]score)//產生成績
+	{
+		for(int i=0; i<50; i++)
+		{
+		 //score[i][0]=i+1;
+		 for(int j=0; j<3; j++)//成績的設定
+		 {
+			 score[i][j]=(int)(Math.random()*61+40);
+			 System.out.print(score [i][j]+"\t");
+			 score[i][3]=score[i][j]+score[i][3];
+		 }
+		 score[i][3]=score[i][3]/3;
+		 System.out.print(score[i][3]);
+		 System.out.println();
+		}
+		
+	}
+	public static void bb (int [][]data)//名次
+	{
+	  for(int i=0; i<50; i++)
+	  {
+		  data[i][4]=1;
+		for(int j=0; j<=49; j++)
+	    {
+		  if(data[i][3]<data[j][3])
+	    {
+	    	data[i][4]++;
+	    }
+		
+	  }
+		System.out.println(data[i][4]);
+	}
+	  
+	}
+	public static void area (int [][]data)//排序
+	{
+	  	for(int i=0; i<=50; i++)
+	  	{
+	  		for(int j=i+1; i<=49; j++)
+	  		{
+	  			if(data[i][3]<data[j][3])
+	  			{
+	  				int t;
+	  				t=data[i][3];
+	  				data[i][3]=data[j][3];
+	  				data[j][3]=t;
+	  			}
+	  			System.out.println(data[i][3]);
+	  	}
+	}
+	}
+	public static void cc (int data[][])//最小
+	{
+		int max=0;
+		for(int i=0; i<50; i++)
+		{
+			for(int j=0; j<=3; j++)
+			if(max<data[i][j])
+			{
+				max=data[i][j];
+		{
+		System.out.println(data[i][j]);
+	}
+			}
+		}
+	}
+	public static void dd (int[][] data)//最大
+	{
+		int min=0;
+		for(int i=0; i<50; i++)
+		{
+			for(int j=0; j<=3; j++)
+			{
+			if(min>data[i][j])
+			{
+				min=data[i][j];
+				System.out.println(data[i][j]);
+			}
+		}
+		}
+	}
+	public static void ee (int[][]data)//標準差
+	{
+		int sdevation=0,avg=0;
+		for(int i=0; i<50; i++)
+		{
+		avg=avg/50;
+		for(int j=0; j<=3; j++)
+		{
+			avg=avg+data[i][j];
+			sdevation=sdevation+(data[i][j]-avg)*(data[i][j]-avg);
+			System.out.println(sdevation);
+		}
+		sdevation=sdevation/50;
+		sdevation=(int)(Math.sqrt(sdevation));
+		System.out.println(sdevation);
+	}
+	}
+	public static void barchart (int[][]score)//成績分布圖
+	{
+	  {
+		  int[]range=new int [11];
+		  for(int i=0; i<50; i++)
+		  {
+			 ++range[score[i][4]/10]; 
+		  }
+		  for(int i=0; i<=10; i++)
+		  
+			  System.out.print(i+":");
+			  for(int j=0; j<10; j++)
+				  System.out.println("*");
+			  System.out.println();
+		  }
+	  }
+	public static void main(String[] args) {
+	int [][] score=new int[50][6];
+	int[]range=new int[11];
+	boolean finish=false;
+	while(!finish)
+	{
+		int n;
+		n=menu();
+		switch(n)
+		{
+		case 1:
+		aa(score);
+		break;
+		case 2:
+		bb(score);
+		break;
+		case 3:
+		area(score);
+		break;
+		case 4:
+		cc(score);
+		break;
+		case 5:
+		dd(score);	
+		break;
+		case 6:	
+		ee(score);
+		break;
+		case 7:
+		barchart(score);
+		break;
+		case 8:
+		finish=true;	
+		}
+	}
+	}
+
+}

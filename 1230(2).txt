@@ -1,0 +1,90 @@
+p1
+int i=0,j=2;
+		int[][]m=new int[5][5];
+		m[i][j]=1;
+		for(int n=2; n<25; n++)
+		{
+			int a=i-1;//列減一
+			int b=j+1;//行加一
+		if(a<0)//判斷如果a大於0
+		{
+		a=i-1;//代替i列
+		b=j+1;//代替j行
+		}
+		if(b>4)//判斷如果b小於4
+		{
+		b=0;
+		}
+		if(m[a][b]>0)//判斷正常格式
+		{
+			a=i+1;
+			b=j;
+		}
+		i=a;//
+		j=b;//
+		m[i][j]=n;//n等於輸入的值
+		}
+		for(i=0; i<5; i++ )//印行
+		{
+			for(j=0; j<5; j++)
+			{
+				System.out.print(m[i][j]+"\t");
+			}
+			System.out.println( );//換行
+		}
+	}
+
+}
+p2
+int[][] m = new int[10][4];
+		int[] a = new int[10];
+		int n;
+		Scanner sc = new Scanner(System.in);
+		n = 0;
+		while (n != 5) {
+			System.out.println("產生成績");
+			System.out.println("排序由大到小");
+			System.out.println("印出平均成績 最大 最小");
+			System.out.println("離開");
+			System.out.println("請選擇(1-5)");
+			n = sc.nextInt();
+			if (n == 1) {
+				for (int i = 0; i < 10; i++) {
+					for (int j = 0; j < 3; j++) {
+						m[i][j] = (int) (Math.random() * 50 + 1);
+						System.out.println();
+						System.out.println("產生成績");
+					}
+				}
+			}
+
+			if (n == 2) {
+				for (int i = 0; i <= 8; i++) {
+					for (int j = 0; j <= 8; j++) {
+						if (a[i] > a[j]) {
+							int t = a[i];
+							a[i] = a[j];
+							a[j] = t;
+							System.out.println("排序"+m[i][j]+"\t");
+							
+						}
+					}
+				}
+			} else if (n == 3) {
+				int max = m[0][3];
+				int min = m[0][3];
+				int sum = 0;
+				System.out.println("平均,最大,最小");
+			} else if (n == 4) {
+				for (int i = 0; i < 10; i++) {
+					for (int j = 0; j <= 4; j++) {
+						System.out.println("列印"+m[i][j]+"\t");
+						
+					}
+				}
+			} else if (n == 5) {
+				System.out.println("輸入成績");
+			}
+		}
+	}
+}

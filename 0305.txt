@@ -1,0 +1,76 @@
+p1
+題目為比大小
+public class p01 {
+
+	
+	public static int max(int a, int b)//int 為整數型態  max為變數
+	{
+		if(a>b)
+			return a;//呼叫A 再把資料傳過印出結果那邊
+		else
+			return b;//呼叫B
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("最大值為:"+max(10,15));//呼叫max 10跟15為真實參數
+	}
+
+}
+p2
+求最大公因數
+public class p02 {
+
+	public static int GCD (int n, int m)//
+	{
+	int r;	
+	r=m%n;
+	while(r>0)
+	{
+		m=n;
+		n=r;
+		r=m%n;
+	}
+		return n;
+		
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int a=20;
+		int b=72;
+		int c=GCD(a,b);
+		System.out.println("結果:"+(a/c)+"/"+(b/c));//約分
+	}
+
+}
+p3
+最大公因數的進階方法
+public class p03 {
+	public static int GCD (int n, int m)//
+	{
+	int r;	
+	r=m%n;
+	while(r>0)
+	{
+		m=n;
+		n=r;
+		r=m%n;
+	}
+		return n;
+		
+	}
+	public static void simplisy(int x, int y)
+	{
+		int c=GCD (x,y);
+		System.out.println("結果:"+(x/c)+"/"+(y/c));
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int a=15;
+		int b=25;
+		simplisy(a,b);
+		a=72;
+		b=24;
+		simplisy(a,b);
+	}
+
+}

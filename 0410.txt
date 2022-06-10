@@ -1,0 +1,88 @@
+p1
+class rectangle//計算面積跟周長
+{
+	int height;
+	int width;
+	public int avea()
+	{
+		return height*width;
+	}
+	public int perimeter ()
+	{
+		return (height+width)*2;
+	}
+	public void setdata(int a,int b)
+	{
+		height=a;
+		width=b;
+	}
+}
+public class p01 {
+	
+	public static void main(String[] args) {
+	rectangle r=new rectangle();
+	r.setdata(10,20);
+	System.out.println("面積="+r.avea());
+	System.out.println("周長="+r.perimeter());
+	}
+
+}
+p2
+設定姓名 學號 成績1 成績2 成績3 排序跟平均
+class student 
+{
+	String name;
+	String id;
+	int score1;
+	int score2;
+	int score3;
+	int average;
+	public student(String cname,String cid,int s1,int s2,int s3)//設定建構子
+	{
+	name=cname;//
+	id=cid;
+	score1=s1;
+	score2=s2;
+	score3=s3;
+	average=(s1+s2+s3/3);	
+	}
+	public void setdata()//設定空的建構子(這樣某些情況才不會出錯)
+	{
+		
+	}
+	public  void  print()
+	{
+		System.out.println(name+"\t"+id+"\t"+score1+"\t"+score2+"\t"+score3+"\t"+average+"\t");
+	}
+
+}
+public class p02 {
+	
+	public static void main(String[] args) {
+	student[]s=new student[10];//有10個陣列元素
+	for(int i=0; i<10; i++)
+	{
+		String n="name"+i;//設定某個名字
+		String id="s"+i;
+		int s1=(int)(Math.random()*100+1);//設定亂數
+		int s2=(int)(Math.random()*100+1);
+		int s3=(int)(Math.random()*100+1);
+		s[i]=new student(n,id,s1,s2,s3);//s[i]是陣列包迴圈裡面的參數透過new student產生出新的參數裡面順便使用建構子 (重要)
+	}
+		for(int i=0; i<=8;i++)//排序
+		{
+			for(int j=i+1;j<=9; j++)
+			{
+				if(s[i].average<s[j].average)//比對平均值
+				{
+					student t;//互換平均值(比它小就互換)
+					t=s[i];
+					s[i]=s[j];
+					s[j]=t;
+				}
+			}
+		}
+		for(int i=0; i<=9; i++)
+			s[i].print();//最後印出
+	}
+}

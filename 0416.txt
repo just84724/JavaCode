@@ -1,0 +1,227 @@
+p1
+import java.util.Scanner;
+class student
+{
+	String name;
+	String id;
+	int score1;
+	int score2;
+	int score3;
+	int score4;
+	int avg;
+	public void input()//輸入資料
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("請輸入姓名");
+		name=sc.next();
+		System.out.println("請輸入學號");
+		id=sc.next();
+		System.out.println("請輸入成績1");
+		score1=sc.nextInt();
+		System.out.println("請輸入成績2");
+		score2=sc.nextInt();
+		System.out.println("請輸入成績3");
+		score3=sc.nextInt();
+		avg=(score1+score2+score3)/3;
+	}
+	public   void print()//列印
+	{
+		System.out.println(name+"\t"+id+"\t"+score1+"\t"+score2+"\t"+score3+"\t"+avg+"\t");
+	}
+
+}
+
+public class p01 
+{
+	
+	public  static  void input(student[]st)//新增陣列與呼叫
+	{
+		for(int i=0; i<5; i++)
+		{
+			st[i]=new student();//產生新的陣列(陣列就有實際參數)
+			st[i].input();//呼叫上面的input
+		}
+	}
+	public  static  void sort(student[]st)//排序
+	 {
+	  for(int i=0; i<3; i++)
+	  {
+		  for(int j=i+1; j<=4; j++)
+		  {
+			  if(st[i].avg<st[j].avg)//st[i]的avg比對
+			  {
+				  student t;//互換
+				  t=st[i];
+				  st[i]=st[j];
+				  st[j]=t;
+			  }
+		  }
+	  }
+   }
+  public  static void print(student[]st)
+  {
+	  for(int i=0; i<5; i++)
+	  {
+		  st[i].print();//呼叫上面的print
+	  }
+   }
+	
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		student[]st=new student[10];
+		input(st);//呼叫上面的副程式
+		sort(st);
+		print(st);
+	}
+
+}
+p2
+import java.util.Scanner;
+  class product
+{
+	String name;
+	String id;
+	int price;
+	int amount;
+	int money;
+	public void input()//輸入資料
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("請輸入姓名");
+		name=sc.next();
+		System.out.println("請輸入學號");
+		id=sc.next();
+		System.out.println("請輸入價格");
+		price=sc.nextInt();
+		System.out.println("請輸入數量");
+		amount=sc.nextInt();
+		money=price*amount;
+	}
+	public   void print()//列印
+	{
+		System.out.println(name+"\t"+id+"\t"+price+"\t"+amount+"\t");
+	}
+}
+class process
+{//該類別執行多個學生資料 全部都執行
+	product[]st=new product [5];
+	public  void input()//新增陣列與呼叫
+	{
+		for(int i=0; i<5; i++)
+		{
+			st[i]=new product();//產生新的陣列(陣列就有實際參數)
+			st[i].input();//呼叫上面的input
+		}
+	}
+	public  void sort()//排序
+	 {
+	  for(int i=0; i<3; i++)
+	  {
+		  for(int j=i+1; j<=4; j++)
+		  {
+			  if(st[i].money<st[j].money)//st[i]的avg比對
+			  {
+				  product t;//互換
+				  t=st[i];
+				  st[i]=st[j];
+				  st[j]=t;
+			  }
+		  }
+	  }
+   }
+	 public   void print()
+	  {
+		  for(int i=0; i<5; i++)
+		  {
+			  st[i].print();//呼叫上面的print
+		  }
+		  }
+}
+
+public class p01 
+	{
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		process p=new process();
+		p.input();
+		p.sort();
+		p.print();
+	}
+	}
+p3(輸入資料 計算單價 數量 金額 排序 )
+import java.util.Scanner;
+
+class  product
+{
+	String id;
+	String name;
+	private int price;
+	private int amount;
+	public void input()
+	{
+		Scanner sc=new Scanner (System.in);
+		System.out.println("請輸入名字");
+		id=sc.next();
+		System.out.println("請輸入名字");
+		name=sc.next();
+		System.out.println("請輸入單價");
+		price=sc.nextInt();
+		System.out.println("請輸入數量");
+		amount=sc.nextInt();
+	}
+	public void print()
+	{
+		System.out.println(id+"\t"+name+"\t"+price+"\t"+amount+"\t"+total()+"\t");
+	}
+	public int total()//該方法是單價*數量的方法 不能自己去他家開冰箱
+	{
+		return(price*amount);
+	}
+}
+class process
+{
+	product[] st=new product[10];
+	public void input()
+	{
+	for(int i=0; i<5; i++)
+	{
+		st[i]=new product();
+		st[i].input();
+	}
+}
+public  void sort()
+{
+	for(int i=0; i<5; i++)
+	{
+		for(int j=i+1; j<=4; j++)
+		{
+			if(st[i].total()<st[j].total())
+			{
+				product t;
+				t=st[i];
+				st[i]=st[j];
+				st[j]=t;
+			}
+		}
+	}
+}
+public   void print()
+{
+	for(int i=0; i<5; i++)
+	{
+	st[i].print();
+}
+}
+public class p02 
+{
+	public void main(String[] args) {
+		// TODO Auto-generated method stub
+		process p=new process();
+		p.input();
+		p.sort();
+		p.print();
+	}
+}
+}

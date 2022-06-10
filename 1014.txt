@@ -1,0 +1,143 @@
+P1
+int score ;
+      Scanner sc =new Scanner(System.in);
+      System.out.println("請輸入成績");
+      score =sc.nextInt();
+      if(score>=60)
+      {
+	System.out.println("恭喜及格");
+}
+else
+{
+	System.out.println("明年再來");
+	}
+	}
+}
+
+P2
+int a,b,c;
+     double s;
+     Scanner sc=new Scanner(System.in);
+     System.out.println("請輸入平時成績");
+     a=sc.nextInt();
+     System.out.println("請輸入期中考成績");
+     b=sc.nextInt();
+     System.out.println("請輸入期末考成績");
+     c=sc.nextInt();
+     s=a*0.3+b*0.3+c*0.4;
+      if(s>=60)
+      {
+     System.out.println("恭喜及格");
+      }
+      else
+      {
+	System.out.println("明年再來");
+      }
+	}
+}
+
+P3
+	String s,t;
+     int a,b,c;
+     double avg ;
+     Scanner sc=new Scanner(System.in);
+     System.out.print("請輸入姓名");
+     s=sc.next();
+     System.out.print("請輸入科目");
+     t=sc.next();
+     System.out.print("請輸入平時成績");
+     a=sc.nextInt();
+     System.out.print("請輸入期中考成績");
+     b=sc.nextInt();
+     System.out.print("請輸入期末考成績");
+     c=sc.nextInt();
+     System.out.println("姓名\t科目\t平時\t其中\t期末\t總成績\t狀態\t");
+     System.out.print(s+"\t"+t+"\t"+a+"\t"+b+"\t"+c+"\t");
+     avg=a*0.3+b*0.3+c*(0.4);
+     System.out.print(avg+"\t");
+     if(avg>=60)
+     
+      {
+     System.out.println("恭喜及格");
+      }
+      else
+      {
+	System.out.println("明年再來");
+      }
+	}
+}
+p4
+     int a,b,c ;
+        Scanner sc=new Scanner(System.in);
+         System.out.print("請輸入第一個邊");
+         a=sc.nextInt ();
+         System.out.print("請輸入第二個邊");
+         b=sc.nextInt ();
+         System.out.print("請輸入第三個邊");
+         c=sc.nextInt ();
+         if(a+b>c&&b+c>a&&c+a>b)
+         {
+         System.out.println("成立");
+         
+	
+         }
+	else
+	{
+		System.out.println("不成立");
+}
+}
+}
+
+P5
+     int a,b,c ;
+      Scanner sc=new Scanner(System.in);
+      System.out.print("請輸入第一個數字");
+      a=sc.nextInt();
+      System.out.print("請輸入第二個數字");
+      b=sc.nextInt();
+      System.out.print("請輸入第三個數字");
+      c=sc.nextInt();
+      if(a>b)
+      {
+    	  System.out.println("最大值="+a);
+    	  {
+    	  if(a>c)
+    	  {
+    		  System.out.println("最大值"+c);
+    	  }
+    		      else
+    	  }      
+      }	
+	}	      	
+P6
+                int a,b,c;
+		Scanner sc=new Scanner(System.in);
+		System.out.print("請輸入數字");
+		a=sc.nextInt();
+		System.out.print("請輸入數字");
+		b=sc.nextInt();
+		System.out.print("請輸入數字");
+		c=sc.nextInt();
+		if(a>b){
+			if(a>c)
+			{
+				System.out.println(a);
+			}
+			else
+			{
+				System.out.println(c);
+			}
+		}
+		else
+		{
+			if(b>c)
+			{
+				System.out.println(b);
+			}
+			else
+			{
+				System.out.println(c);
+			}
+		}
+		
+	}

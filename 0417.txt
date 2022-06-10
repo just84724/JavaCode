@@ -1,0 +1,138 @@
+p1
+class Car
+{
+	String Cartype;
+	int cc;
+	public Car(String ct, int c)//設定建構子就是把上面的變數變成可使用的 Person類別呼叫到該程式
+	{
+		Cartype=ct;//廠牌
+		cc=c;
+	}
+	public void printCar()
+	{
+		System.out.println("廠牌"+Cartype+"，排氣量，"+cc);
+	}
+	
+}
+class Person//*****
+{
+	String name;
+	String tel;
+	Car c;//***
+	public Person (String sname, String stel,String car,int cc )//設定建構子呼叫上面的Car類別
+	{
+		name=sname;
+		tel=stel;
+		c=new Car(car,cc);//呼叫上面的Car
+	}
+	public  void  printPerson()
+	{
+		System.out.println("姓名,"+name+"電話,"+tel);
+		c.printCar();
+		
+	}
+}
+public class p01 {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Person p=new Person("人","1234567","賓士",2000);
+		p.printPerson();
+	}
+}
+p2
+class Student
+{
+	String name;
+	String id;
+	public Student(String sname, String sid )
+	{
+		name=sname;
+		id=sid;	
+	}
+	public void  printStudent()
+	{
+		System.out.println("學號\t"+"姓名\t");
+	}
+}
+class Champartment
+{
+	String information;
+	String tel;
+	Student id;
+	public Champartment (String informations,String stel, String teacher)
+	{
+		information=informations;
+		tel=stel;
+	}
+	public void printChampartment()
+	{
+		System.out.println("系名+\t"+"電話+\t");
+	}
+}
+class cals
+{
+	String i1203;
+	String calss;
+	String teacher;
+	Student c;
+	Champartment b;
+	public cals (String i1202,String casll,String teachers,String informations,String stel,String name,Student id,String student)
+	{
+		i1203=i1202;
+		calss=casll;	
+		teacher=teachers;
+		c=new Student(student,stel);
+		b=new Champartment (informations,name,teachers);
+		
+	}
+	public void   print()
+	{
+		System.out.println("名稱"+"教室"+"老師名字");
+		c.printStudent();
+		b.printChampartment();
+	}
+}
+public class p02 {
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		cals t=new cals("0000","01","老師","資管系","340234","名字","學生");
+		t.print();
+	}
+
+}
+p3
+class orderprocess//訂單處理 有10個資料 從0開始
+{
+	order[] od=new order[10];
+	int no=0;
+	
+public  void Addorder(String name ,String order ,String ss, String number)//新增訂單
+{
+	
+	od[no]=new order(name,order,ss,number);
+	
+	no=no-1;
+}
+public void int printorder()
+{
+	for(int i=0; i<=no; i++)
+	{
+		order[i].print();
+	}
+}
+public int man()
+{
+	System.out.println("1新增");
+	System.out.println("2列印");
+	System.out.println("3放棄");
+}
+}
+public class p04 {
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

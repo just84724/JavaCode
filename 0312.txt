@@ -1,0 +1,65 @@
+public static void input (int[][]m, int[]price)
+
+{
+	for(int i=0; i<=3; i++)
+	{
+		m[i][0]=i;//設產品編號
+		for(int j=1; j<=7; j++)
+		{
+			m[i][j]=(int)(Math.random()*41+10);//產生產品的數量
+			m[i][8]=m[i][8]+m[i][j];//i行的第8列累加
+			m[4][j]=m[4][j]+m[i][j];//i的第四行跟第j列累加
+		}
+		m[i][9]=m[i][8]*price [m[i][0]];//產品的交易金額
+		m[4][9]=m[4][9]+m[i][9];//總和
+		m[4][8]=m[4][8]+m[i][8];//計算總額(累加)
+	}
+	m[4][0]=4;
+}
+	public static void print (int[][] m,String[]pname)
+	{
+		for(int i=0; i<=4; i++)
+		{
+			System.out.print(pname [m[i][0]]+"\t");//列印產品名稱
+			for(int j=1; j<=9; j++)
+			{
+				System.out.print(m[i][j]+"\t");//列印數量
+			}
+			System.out.println();
+		}
+	}
+	public static void sort(int [][] m, int n)//
+	{
+		int t;
+		if(n==1)//呼叫上面的n
+			t=9;
+		else
+			t=8;
+		for(int i=0; i<=9; i++)
+		{
+			for(int j=i+1; j<=3; j++)//從第i+1開始運行
+			{
+				if(m[i][t]<m[j][t])
+				{
+					int[]tm;//互換行
+					tm=m[i];
+					m[i]=m[j];
+					m[j]=tm;
+				}
+			}
+		}
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String []pname={"牛肉","雞蛋","三明治","吐司","總和"};
+		int [] price={10,8,15,12};
+		int [][] sale=new int[5][10];
+		input(sale,price);//印出
+		print(sale,pname);
+		  sort(sale,1);
+		print(sale,pname);
+		  sort(sale,2);
+		print(sale,pname);
+	}
+
+}

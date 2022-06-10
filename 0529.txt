@@ -1,0 +1,240 @@
+import java.util.Scanner;
+
+class product //設定
+{
+	String id;
+	String name;
+	int price;
+
+	public product(String pid, String pname, int pprice)
+	{
+		id = pid;
+		name = pname;
+		price = pprice;
+
+	}
+	public void setdata(String pname,int pprice)//修改資料
+	{
+		name=pname;
+		price=pprice;
+	}
+
+	public void print() 
+	{
+		System.out.println(id + "\t" + name + "\t" + price + "\t");
+	}
+	public String Getid()
+	{
+		return id;
+	}
+	public int Getprice()
+	{
+		return price;
+	}
+}
+
+class process //處理
+{
+	Scanner sc = new Scanner(System.in);
+	product[] p = new product[100];
+	int no = -1;// 印的資料最後一筆
+	int startno = 0;// 印的資料第一筆
+
+	public process() 
+	{
+		for (int i = 0; i < 20; i++) 
+		{
+			String id = "id" + (i + 1);// 第一筆id1 第二筆id2
+			String name = "name" + (i + 1);
+			int price = (int) (Math.random() * 101 + 50);
+			no = no + 1;// 裡面有資料再繼續+1
+			p[no] = new product(id, name, price);// 資料建立
+		}
+	}
+
+	public int mainmenu() //主選單
+	{
+		System.out.println("功能選單");
+		System.out.println("新增");
+		System.out.println("查詢");
+		System.out.println("刪除");
+		System.out.println("瀏覽");
+		System.out.println("離開");
+		System.out.println("修改資料");
+		int n = sc.nextInt();
+		return n;
+	}
+
+	public void print5() //印5筆資料
+	{
+		int endno;
+		endno = startno + 4;
+		if (endno > no)// 調整最後的列印位置
+		{
+			endno = no;
+			for (int i = startno; i <= endno; i++)// 判斷是否有5筆資料
+			{
+				System.out.println(i + "\t");// 列印五筆資料
+				p[i].print();
+			}
+		}
+	}
+	public int browsemenu() //換頁菜單
+	{
+		int n = 0;
+		if (startno != 0)
+		{
+			System.out.println("1.上一頁");
+		}
+		if (startno + 5 <= no)// 判斷最後一筆資料是否有超過15沒超過就可以繼續下一頁
+		{
+			System.out.println("2.下一頁");
+			System.out.println("3.離開");
+			n = sc.nextInt();
+		}
+		return n;
+	}
+
+	public void browse()//換頁
+	{
+		print5();
+		int n = browsemenu();
+		while (n != 5) 
+		{
+			if (n == 1) 
+			{
+				startno = startno + 5;// 下一頁
+			} 
+			else if (n == 2) {
+				startno = startno - 5;// 上一頁
+				print5();
+				n = browsemenu();
+			}
+		}
+	}
+
+	public void create()// 新增資料
+	{
+		System.out.println("請輸入編號");
+		String id = sc.next();
+		System.out.println("請輸入名字");
+		String name = sc.next();
+		System.out.println("請輸入價格");
+		int price = sc.nextInt();
+		no = no + 1;// 裡面有資料就+1
+		p[no] = new product(id, name, price);// 新的空間
+	}	
+	public void operation() //操作
+	{
+		int n = mainmenu();
+		while (n != 5)
+		{
+			if (n == 4)
+			{
+				browse();// 當browse沒做的時候(或者超過3) 就會自動跑過來這裡(因為呼叫browse)
+				n = mainmenu();
+			}
+			else if (n == 1) 
+			{
+				create();
+			}
+			else if(n==2)
+			{
+				querry();
+			}
+			else if(n==3)
+			{
+				delete();
+			}
+			else if(n==7)
+			{
+				browse();
+			}
+			else if(n==5)
+			{
+				update();
+			}
+			else if(n==6)
+			{
+				max(n);
+			}
+			n = mainmenu();
+		}
+	}
+
+	public int check(String id)//查詢id
+	{
+		for(int i=0; i<=no; i++)
+		{
+			if(p[i].Getid().equals(id))//字串判斷
+			{
+				return i;//找出來就在第i個位置
+			}
+		}
+		return-1;//沒有找到就沒有了
+	}
+	public void querry()//查詢
+	{
+		System.out.print("請輸入編號");
+		String id=sc.next();
+		int n=check(id);
+		if(n!=-1)
+		{
+		System.out.println("查詢的產品");
+		p[n].print();
+		}
+		else
+		{
+			System.out.print("無資料");
+		}
+	}
+	public void delete()//刪除
+	{
+		System.out.print("請輸入編號");
+		String id=sc.next();
+		int n=check(id);
+		if(n!=1)
+		{
+			p[n]=p[no];//用最後一筆資取代第N筆
+			no=no-1;//最後一筆資料往上調一筆
+		}
+		else
+		{
+			System.out.println("無資料");
+		}
+	}
+	public void update()//修改資料
+	{
+		System.out.print("請輸入名字");
+		String id=sc.next();
+		int n=check(id);//**
+		if(n!=-1)//**
+		{
+		System.out.println("請輸入編號");//*	
+		String name=sc.next();
+		System.out.println("請輸入價格");//*
+		int price=sc.nextInt();
+		p[n].setdata(name,price);//*****
+		}	
+	}
+	public void max(int price)//找出最貴的價格
+	{
+		int n=0;
+		int max=p[0].Getprice();//*****
+		for(int i=1; i<=no; i++)
+		{
+			if(p[n].Getprice()<max)
+			{
+			p[i].Getprice();
+			n=i;
+			}
+			p[n].print();
+		}
+	}
+}
+public class p01 {
+	public static void main(String[] args) {
+		process p = new process();
+		p.operation();
+	}
+}

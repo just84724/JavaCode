@@ -1,0 +1,34 @@
+p6
+int  r=0,c=0;
+		int[][]m=new int[5][5];
+		m[r][c]=1;
+		for(int n=2; n<=25; n++)
+		{
+			if(c==4)
+			{
+			c=r+1;
+			r=4;
+		}
+			else if(r==0)//如果列等於0
+			{
+				r=c+1;
+				c=0;
+			}
+			else//如果上面都不是的話就判斷正常方式
+			{
+				r=r-1;//列-1
+				c=c+1;//行+1
+			}
+			m[r][c]=n;
+	}
+		for(int i=0; i<5; i++)
+		{
+			for(int j=0; j<5; j++)//[印行
+			{
+				System.out.print(m[i][j]+"\t" );
+			}
+			System.out.println( );//換行
+				
+		}
+}
+}

@@ -1,0 +1,70 @@
+p1
+		String[]guess={"剪刀","石頭","布"};
+		int c=(int)(Math.random()*3+1);
+		int p=0;
+		Scanner sc=new Scanner(System.in);
+		System.out.print("輸入一個值");
+		p=sc.nextInt();
+		System.out.println("電腦猜"+guess[c-1]);
+		System.out.println("玩家猜"+guess[p-1]);
+		
+		int n=p*10+c;
+		if(n==11||n==22||n==33)
+		{
+			System.out.println("平手");
+		}
+		else if (n==12||n==23||n==31)
+		{
+			System.out.println("你輸了");
+		}
+		else
+		{
+			System.out.println("你贏了");
+		}
+	}
+
+}
+
+p3
+int n;
+		int[] c=new int[6];
+		for(int i=0; i<6; i++)
+		{
+		c[i]=0;
+		}
+		for(int i=1; i<=600; i++)
+		{
+			n=(int)(Math.random()*6+1);
+			c[n-1]=c[n-1]+1;
+		}
+		for(int i=0; i<6; i++)
+		{
+			System.out.println((i+1)+":"+c[i]);
+		}
+	}
+
+}
+p4
+int [] n=new int[100];
+		for(int i=0; i<10; i++)
+		{
+		n[i]=(int)(Math.random()*100+1);
+		}
+		for(int i=0; i<=8; i++)
+		{
+			for(int j=0; j<9; j++)
+			{
+				if(n[j]>n[j+1])
+				{
+					int t=n[j];
+					n[j]=n[j+1];
+					n[j+1]=t;
+				}
+			}
+		}
+				for(int i=0; i<6; i++)
+				{
+					System.out.println(n[i]+" ");
+				}
+			}
+}

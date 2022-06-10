@@ -1,0 +1,206 @@
+P1
+       int max,min;
+       int a,b,c,d,e;
+       Scanner sc=new Scanner(System.in);
+       System.out.print("請輸入數字");
+       a=sc.nextInt();
+       System.out.print("請輸入數字");
+       b=sc.nextInt();
+       System.out.print("請輸入數字");
+       c=sc.nextInt();
+       System.out.print("請輸入數字");
+       d=sc.nextInt();
+       System.out.print("請輸入數字");
+       e=sc.nextInt();
+       max=a;
+       min=a;
+       {
+     if(max<a)     
+       {
+       max=a;
+       }
+       if(min>a)
+    	  {
+    		  min=a;
+      if(max<b)   	  
+      {
+    	  max=b;  	  
+      }
+      if(min>b)
+      {
+    	 min=b;
+    	 {
+    	if(max<c)
+    	{
+    		max=c;
+    	{
+    	if(min>c)
+    		{
+    		min=c;
+    		}
+    	if(max<d)
+    		{
+    		max=d;
+    		}
+    	if(min>d)
+    		{
+    		min=d;
+    		}
+    	if(max<e)
+    		{
+    		max=e;
+    		}
+    	if(min>e)
+    		{
+    		min=e;
+    		}
+    		System.out.print("最大值="+max+"\t最小值="+min);
+}
+    		}
+    		}
+P2
+		double f,m;
+		Scanner sc=new Scanner(System.in);
+		System.out.print("請輸入電度");
+		f=sc.nextInt();
+		if(f<=100)
+		{
+			m=f*1.2;
+		}
+		else if(f<=300)
+		{
+			m=100*1.2+(f-100)*1.6;
+		}
+		else if(f<=500)
+			{
+				m=100*1.2+200*1.6+(f-300)*2;
+			}
+		else
+				{
+		m=100*1.2+200*1.6+200*2+(f-500)*2.2;
+		
+		
+	System.out.print("應付金額="+m+"元");
+		if(m<=120)
+		{
+			System.out.print("好棒棒");
+		}
+		else if(m<=120)
+			{
+				System.out.print("不錯.再加油");
+			}
+		else if(m<=400)
+		{
+			System.out.print("用太多電");
+		}
+		else
+		{
+			System.out.print("用太多電了");
+		
+		
+		}
+	}
+	}
+}
+P3
+   int t,m,m1= 0,m2= 0;
+   Scanner sc=new Scanner(System.in);
+   System.out.print("輸入身分1=女2=男3=老師");
+   t=sc.nextInt();
+   System.out.print("請輸入票數");
+   m=sc.nextInt();
+   if(t==1)
+   {
+	   if(m<5)
+   
+   {
+   m1=150;
+   m2=100;
+   }
+	   else if(t==2)
+	   {
+		   m1=200;
+		   m2=160;
+	   }
+	   else  if(t==3)
+				   {
+					  m1=50;
+					  m2=40;
+				   }
+	   else
+	   {
+		   m=-1;
+	   }
+   if(m==-1)
+   {
+	   System.out.print("輸入錯誤");
+   }
+	   else
+		   
+		   System.out.print("金額"+m);
+   }
+	}
+}
+
+P4
+double f,m,a,m1,m2,m3,m4;
+		Scanner sc=new Scanner(System.in);
+		System.out.print("一般日=m1夏日=m2");
+		f=sc.nextInt();
+		System.out.print("請輸入度數");
+		m=sc.nextInt();
+		if(f==1)		
+		{
+			m1=1.2;
+			m2=1.6;
+			m3=2;
+			m4=3.2;
+		}
+		else 			
+		{
+			m1=1.4;
+			m2=2.0;
+			m3=2.3;
+			m4=2.6;
+		if(f<=300)
+			
+		m1=1.6;
+		m2=2.0;
+		}
+		else if(f==3)
+			
+			{
+			if(f>=500)
+			m1=2;
+			m2=2.3;
+			}
+		else
+				{
+		if(f<500)
+		m1=2.2;
+		m2=2.6;
+				}
+	System.out.print("應付金額="+m+"元");
+		if(m<=100)
+		{
+			System.out.print("好棒棒");
+		}
+		else if(m<=300)
+			{
+				System.out.print("不錯.再加油");
+			}
+		else if(m<=500)
+		{
+			System.out.print("用太多電");
+		}
+		else
+		{
+			System.out.print("用太多電了");
+		
+		
+		}
+	}
+}
+}
+
+

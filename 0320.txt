@@ -1,0 +1,101 @@
+p1
+public static int menu()
+	{
+		int n;
+		Scanner sc=new Scanner (System.in);
+		System.out.println("輸入三角形的邊長");
+		System.out.println("三角形的類型");
+		System.out.println("印出面積");
+		System.out.println("離開程式");
+		n=sc.nextInt();
+		return n;
+	}
+	public static void inputdata (int []g)
+	{
+		Scanner sc=new Scanner (System.in);
+		System.out.println("第一個邊長");
+		g[0]=sc.nextInt();
+		System.out.println("第二個邊長");
+		g[1]=sc.nextInt();
+		System.out.println("第三個邊長");
+		g[2]=sc.nextInt();
+	}
+	public static void aa (int []m)
+	{
+		if(m[0]+m[1]>m[2]&&m[1]+m[2]>m[0]&&m[2]+m[0]>m[1])
+		{
+			System.out.println("構成三角形");
+		}
+		else
+		{
+			System.out.println("無法構成三角形");
+		}
+	}
+	public static void bb  (int []m )
+	{
+		int t;
+		if(m[2]>m[1])
+		{
+		t=m[2];
+		m[2]=m[0];
+		m[0]=t;
+		}
+		if(m[1]>m[2])
+		{
+		t=m[2];
+		m[2]=m[1];
+		m[1]=t;
+		}
+		if(m[2]>m[0]+m[1])
+		{
+			System.out.println("鈍角");
+		}
+		else if(m[2]==m[0]+m[1])
+		{
+			System.out.println("銳角");
+		}
+		else if(m[0]<m[0]+m[1])
+		{
+			System.out.println("直角");
+		}
+	}
+	public static void   cc  (int []m)
+	{
+		int a=m[0];
+		int b=m[1];
+		int c=m[2];
+		double dd,s=0;
+			s=s+(a+b+c)/2;
+			dd=Math.sqrt (s*(s-a)*(s-b)*(s-c));	
+		System.out.println(dd);
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[]edges=new int[3];
+		int n;
+		boolean finish=false;
+		while(finish==false)
+		{
+			
+			n=menu();
+			switch(n)
+			{
+			 case 1:
+			 inputdata(edges);
+			 break;
+			 case 2:
+			 aa(edges);	
+			 break;
+			 case 3:
+			 bb(edges);
+			 break;
+			 case 4:
+			 cc(edges);
+			 break;
+			 case 5:
+			 finish=true;	 
+			}
+		}
+	}
+
+}

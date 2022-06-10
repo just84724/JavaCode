@@ -1,0 +1,72 @@
+p1
+int n=29;
+		boolean test=true;
+		for(int i=2; i<=n-1; i++)
+		{
+			if(n%i==0)
+			{
+			test=false;
+			break;
+			}
+		}
+			if(test==true)
+			{
+			System.out.println("質數="+n);
+			}
+			else
+			System.out.println("不是質數");
+			}
+		}
+p2
+int n;
+		boolean test=true;
+		for( n=2; n<=1000; n++)//設起始值
+		{
+			for(int i=2; i<=n-1; i++)//質數的概念
+			{
+				if(n%i==0)//如果n可以%i的餘數就脫離迴圈
+				{
+				test=false;//代表錯誤
+				break;
+				}
+			}
+		}
+				if(test=true)//印出
+				{
+				System.out.println("是質數="+n);
+				}
+				else
+				System.out.println("不是質數");
+			}	
+		}
+p3
+int k=1;//起始值
+		for(int n=2; n<=1000; n++)//設起始值
+		{
+			boolean test=true;
+			for(int i=2; i<=n-1; i++)//質數的概念
+			{
+				
+				if(n%i==0)//如果n可以%i的餘數就脫離迴圈
+				{
+				test=false;//代表錯誤
+				break;
+				}
+			}
+				if(test==true)//印出
+				{
+				System.out.print(n+"\t");
+				if(k%5==0)//如果可以整除5的餘數就換行
+				System.out.println();
+				k=k+1;//如果i=1判斷完之後就換i=2一直累加
+				}
+p4
+int[] m=new int[4];//代替a,b,c,d
+		for(int i=1; i<=100; i++)
+		{
+		int ans=(int)(Math.random()*4);//產生亂數
+		m[ans]++;//m為4個陣列0.1.2.3包在亂數裡面 累加 ++的意思為a=a+1
+		}
+		System.out.println("a="+m[0]+"b="+m[1]+"c="+m[2]+"d="+m[3]);
+	}
+p5

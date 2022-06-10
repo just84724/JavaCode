@@ -1,0 +1,56 @@
+P1
+		double x;
+		Scanner sc=new Scanner(System.in);
+		System.out.println("請輸入年份");
+		x=sc.nextInt();
+		if(x%4==0&&x%100!=0||x%400==0)
+		{
+			System.out.println("閏年");
+		}
+		else
+		{
+			System.out.println("平年");
+		}
+P2
+		double s;
+		Scanner sc=new Scanner(System.in);
+		System.out.println("請輸入成績");
+		s=sc.nextInt();
+		if(s>=80)
+		{
+			System.out.println("A級");
+		}
+		else if(s>=70)
+			{
+				System.out.println("B級");
+			}
+			else if(s>=60)
+				{
+					System.out.println("C級");
+				}
+				else
+					{
+						System.out.println("D級");
+					}
+p3
+		double s;
+		Scanner sc=new Scanner(System.in);
+		System.out.println("請輸入購買片數");
+		s=sc.nextInt();
+		if(s>=500)
+		{
+			s=s*6;
+		}
+		else if(s>=300)
+		{
+			s=s*10;
+		}
+		else if(s>=100)
+		{
+			s=s*15;
+		}
+		else
+		{
+			s=s*20;
+		}
+		System.out.println("應付金額="+s);

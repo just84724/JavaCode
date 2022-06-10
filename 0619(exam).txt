@@ -1,0 +1,141 @@
+ class product 
+{
+	String id;
+	String name;
+	int price,gty;
+	public product(String id,String name,int price,int gty)
+	{
+		this.id=id;
+		this.name=name;
+		this.price=price;
+		this.gty=gty;
+	}
+	public void print()
+	{
+		System.out.println(id+"\t"+name+"\t"+price+"\t"+gty+"\t"+gettotal());
+	}
+	public int gettotal()
+	{
+		return price*gty;
+	}
+	public String getProduct()
+	{
+		return id+"\t"+name+"\t"+price+"\t"+gty+"\t"+gettotal();
+	}
+	public String getid()
+	{
+		return id;
+	}
+	public String getname()
+	{
+		return name;
+	}
+}
+class productprocess
+{
+	product []p=new product[60];
+	int no=0;
+	public void inpytproduct()throws IOException
+	{
+		Scanner sc= new Scanner(new File("p.txt"));
+		String id;
+		String name;
+		int gty;
+		int price;
+		while(sc.hasNext())
+		{
+			id=sc.next();
+			name=sc.next();
+			gty=sc.nextInt();
+			price=sc.nextInt();
+			p[no]=new product(id,name,price,gty);
+			no=no+1;
+		}		
+	}
+	public void print()
+	{
+		System.out.println("品號\t名稱\t單價\t數量\t總金額");
+		for(int i=0;i<no;i++)
+			p[i].print();
+	}
+	public void sort()
+	{
+		for(int i=0;i<no-1;i++)
+		{
+			for(int j=i+1;j<no;j++)
+			{
+				if(p[i].gettotal()<p[j].gettotal())
+				{
+					product t;
+					t=p[i];
+					p[i]=p[j];
+					p[j]=t;
+				}
+			}
+		}
+	}
+	public String getavg()
+	{
+		int avg=0;
+		for(int i=0;i<no;i++)
+		{
+			avg=avg+p[i].gettotal();
+		}
+		avg=avg/no;
+		return"平均銷售金額:"+avg;
+	}
+	public String getmax()
+	{
+		int max=p[0].gettotal();
+		int getmax=0;
+		for(int i=0;i<no;i++)
+		{
+			if(max<p[i].gettotal())
+			{
+				max=p[i].gettotal();
+				getmax=i;
+			}
+		}		
+		return"最高銷售金額:品號"+p[getmax].getid()+"品名"+p[getmax].getname();
+	}
+	public String getmin()
+	{
+		int min=p[0].gettotal();
+		int getmin=0;
+		for(int i=0;i<no;i++)
+		{
+			if(min>p[i].gettotal())
+			{
+				min=p[i].gettotal();
+				getmin=i;
+			}
+		}
+		return"最低銷售金額:品號"+p[getmin].getid()+"品名"+p[getmin].getname();
+	}
+	public void report() throws IOException
+	{
+		BufferedWriter bw = new BufferedWriter(new FileWriter("pp.txt"));
+		for(int i=0;i<no;i++)
+		{
+			bw.write(p[i].getProduct());
+			bw.newLine();
+		}
+		System.out.println(getavg());
+		System.out.println(getmax());
+		System.out.println(getmin());
+		bw.write(getavg());
+		bw.newLine();
+		bw.write(getmax());
+		bw.newLine();
+		bw.write(getmin());
+		bw.newLine();		
+		bw.flush();//強迫進去
+		bw.close();//關閉檔案//沒有close不會儲存關檔
+	}
+}
+	public static void main(String[] args) throws IOException{
+		productprocess pp= new productprocess();
+		pp.inpytproduct();
+		pp.sort();
+		pp.print();
+		pp.report();

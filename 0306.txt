@@ -1,0 +1,112 @@
+p1
+import java.util.Scanner;
+
+
+public class p01 {
+    public static int menu()
+    {
+    System.out.println("功能選單");
+    System.out.println("1加法");
+    System.out.println("2減法");
+    System.out.println("3乘法");
+    System.out.println("4除法");
+    System.out.print("請選擇");
+    Scanner sc=new Scanner (System.in);
+    int n=sc.nextInt();
+    return n;//傳回int的值
+    }
+    public static void add(int a,int b)
+    {
+    System.out.println("ans="+(a+b));
+    }
+    public static void bdd(int a, int b)
+    {
+    	System.out.println("ans="+(a-b));
+    }
+    public static void cdd(int a,int b)
+    {
+    	System.out.println("ans="+(a*b));
+    }
+    public static void dcc(int a,int b)
+    {
+    	System.out.println("ans="+(a/b));
+    }
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int a,b;
+		a=1; b=1;
+		Scanner sc=new Scanner(System.in);
+		System.out.println("請輸入兩個整數");
+		System.out.print("才一個");
+		a=sc.nextInt();
+		System.out.print("才兩個");
+		b=sc.nextInt();
+		while(a!=0||b!=0)
+		{
+			int n;
+			n=menu();
+		switch(n)
+		{
+		case 1: add(a,b);
+		break;
+		case 2: bdd(a,b);
+		break;
+		case 3: cdd(a,b);
+		break;
+		case 4: dcc (a,b);
+		break;
+		}
+		System.out.println("請輸入兩個整數");
+		System.out.print("才一個");
+		a=sc.nextInt();
+		System.out.print("才兩個");
+		b=sc.nextInt();	
+p2
+public static void inputdata(int [][]data)
+	{
+		for(int i=0; i<10; i++)
+		{
+			data[i][0]=i+1;//打學號
+		for(int j=1; j<=3; j++)
+		{
+			data[i][j]=(int)(Math.random()*101);//設三科成績
+			data[i][4]=data[i][4]+data[i][j];//累加成績
+		}
+		data[i][4]=data[i][4]/3;//平均三科的成績
+		}
+	}
+	public static void add (int[][]data)
+	{
+		for(int i=0; i<=8; i++)
+		{
+			for(int j=i+1; j<=9; j++)
+			if(data [i][4]<data[j][4])//進行比對(如果j大於i就進行互換,沒有比它大的話就進行下一個位置進行比對)
+			{
+				int[]t;//進行一維陣列互換的動作
+				t=data[j];
+				data[j]=data[i];
+				data[i]=t;
+			}
+		}
+	}
+	public static void bdd (int[][]data)
+	{
+	for(int i=0; i<=8; i++)//印出結果
+	{
+		for(int j=0; j<=4; j++)
+		{
+		System.out.print(data[i][j]+"\t");	
+		}
+		System.out.println();	
+	}
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		{
+		int[][] student=new int[10][5];//
+		inputdata(student);//把副程式包起來算出
+		add(student);
+		bdd(student);
+	}
+	}
+}
